@@ -19,7 +19,7 @@ async function main() {
       {
         judul: "Bumi Manusia",
         penulis: "Pramoedya Ananta Toer",
-        kategori: "Sastra",
+        kategori: "Novel",
         tahunTerbit: 1980,
         stokTersedia: 0,
         stokTotal: 2,
@@ -29,7 +29,7 @@ async function main() {
       {
         judul: "Fisika Dasar",
         penulis: "Halliday, Resnick, dan Walker",
-        kategori: "Pelajaran",
+        kategori: "Sains",
         tahunTerbit: 2014,
         stokTersedia: 2,
         stokTotal: 2,
