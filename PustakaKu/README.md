@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PustakaKu
 
-## Getting Started
+PustakaKu adalah aplikasi web sederhana untuk mencatat dan melihat koleksi buku perpustakaan SMA. Aplikasi dibuat dengan Next.js App Router, TypeScript, Tailwind CSS, Prisma, dan SQLite lokal.
 
-First, run the development server:
+## Fitur
+
+- Halaman beranda yang menjelaskan aplikasi.
+- Daftar buku dengan pencarian berdasarkan judul atau penulis.
+- Halaman detail buku, termasuk informasi stok tersedia dan total stok.
+- Form untuk menambahkan buku dengan validasi di server.
+- Indikator stok habis pada daftar buku.
+
+## Teknologi
+
+- Next.js 16 dan React 19
+- TypeScript
+- Tailwind CSS 4
+- Prisma ORM 6
+- SQLite
+
+## Persyaratan
+
+- Node.js 24.x (disarankan; seed menggunakan dukungan TypeScript bawaan Node.js)
+- npm
+
+## Instalasi dan konfigurasi
+
+Jalankan perintah dari folder proyek `PustakaKu`:
+
+```bash
+npm install
+```
+
+Buat file `.env` di folder proyek, sejajar dengan `package.json`, lalu isi:
+
+```env
+DATABASE_URL="file:./dev.db"
+```
+
+URL tersebut digunakan oleh Prisma untuk membuat database SQLite lokal di `prisma/dev.db`. File `.env` dan database lokal sudah dikecualikan dari Git.
+
+## Migrasi dan data awal
+
+Terapkan migrasi yang tersedia untuk membuat tabel:
+
+```bash
+npx prisma migrate dev
+```
+
+Generate Prisma Client, lalu isi database dengan tiga contoh buku:
+
+```bash
+npx prisma generate
+npx prisma db seed
+```
+
+**Perhatian:** perintah seed menjalankan `deleteMany()` pada tabel `Buku` sebelum memasukkan data contoh. Menjalankannya kembali akan menghapus semua buku yang tersimpan lalu menggantinya dengan data awal.
+
+## Menjalankan aplikasi
+
+Jalankan server pengembangan:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Untuk menjalankan versi produksi secara lokal:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Halaman aplikasi
 
-To learn more about Next.js, take a look at the following resources:
+| URL | Keterangan |
+| --- | --- |
+| `/` | Beranda PustakaKu |
+| `/buku` | Daftar buku dan pencarian |
+| `/buku?cari=kata` | Daftar buku yang cocok dengan kata pencarian |
+| `/buku/[id]` | Detail buku berdasarkan ID |
+| `/buku/baru` | Form tambah buku |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Perintah pemeriksaan
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+npx tsc --noEmit
+```
 
-## Deploy on Vercel
+## Struktur utama
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+app/                  Halaman App Router dan Server Action
+components/           Navbar, daftar buku, dan form
+lib/prisma.ts         Singleton Prisma Client
+prisma/schema.prisma  Skema database
+prisma/seed.ts        Data awal buku
+prisma/migrations/    Riwayat migrasi database
+prisma.config.ts      Konfigurasi Prisma dan perintah seed
+```

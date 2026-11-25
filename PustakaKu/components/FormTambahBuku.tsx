@@ -160,7 +160,7 @@ export default function FormTambahBuku() {
           <FieldError message={state.fieldErrors.kategori} />
         </div>
 
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 sm:gap-2">
           <div>
             <label
               htmlFor="tahunTerbit"
