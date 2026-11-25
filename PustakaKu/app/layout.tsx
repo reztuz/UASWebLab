@@ -4,11 +4,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Pustaku | Perpustakaan Sekolah",
-    template: "%s | Pustaku",
+    default: "PustakaKu | Perpustakaan Sekolah",
+    template: "%s | PustakaKu",
   },
   description:
-    "Pustaku membantu perpustakaan SMA mengelola koleksi buku dan memantau ketersediaan stok.",
+    "PustakaKu membantu perpustakaan SMA mengelola koleksi buku dan memantau ketersediaan stok.",
 };
 
 export default function RootLayout({

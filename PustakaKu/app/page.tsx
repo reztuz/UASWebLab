@@ -39,7 +39,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-stone-600">
-              Pustaku membantu perpustakaan SMA mengelola koleksi buku,
+              PustakaKu membantu perpustakaan SMA mengelola koleksi buku,
               memantau ketersediaan, dan membuat pencatatan peminjaman terasa
               lebih mudah.
             </p>
@@ -127,7 +127,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="mb-10 max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-800">
-            Pustaku untuk sekolah
+            PustakaKu untuk sekolah
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl">
             Pengelolaan buku yang lebih sederhana.

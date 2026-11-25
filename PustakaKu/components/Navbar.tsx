@@ -15,7 +15,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="flex shrink-0 items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700"
-          aria-label="Pustaku, beranda"
+          aria-label="PustakaKu, beranda"
         >
           <span className="flex size-10 items-center justify-center rounded-xl bg-emerald-800 text-white">
             <svg
@@ -41,7 +41,7 @@ export default function Navbar() {
             </svg>
           </span>
           <span className="text-xl font-bold tracking-tight text-stone-900">
-            Pustaku
+            PustakaKu
           </span>
         </Link>
 
